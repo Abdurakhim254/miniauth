@@ -11,7 +11,7 @@ export class AuthService {
   constructor(@InjectModel(User.name) private Usermodel: Model<User>) {}
 
   async create(createAuthDto: CreateAuthDto) {
-    const {email}=createAuthDto
+    const { email } = createAuthDto;
     const result = await this.Usermodel.findOne({ email });
     if (result) {
       return "Ushbu Foydalanuvchi allaqachon ro'yxatdan o'tgan";
@@ -20,13 +20,13 @@ export class AuthService {
     return "Ro'yxatdan o'tdingiz";
   }
 
-  async loginService(loginAuthdto:loginAuthDto) {
-    const {email,password}=loginAuthdto
-    const result=await this.Usermodel.findOne({email,password})
-    if(result){
-      return "Login Muvaffaqiyatli amalga oshirildi"
+  async loginService(loginAuthdto: loginAuthDto) {
+    const { email, password } = loginAuthdto;
+    const result = await this.Usermodel.findOne({ email, password });
+    if (result) {
+      return 'Login Muvaffaqiyatli amalga oshirildi';
     }
-    return "Foydalanuvchi topilmadi"
+    return 'Foydalanuvchi topilmadi';
   }
   async findAll() {
     const result = await this.Usermodel.find();
@@ -43,7 +43,7 @@ export class AuthService {
   async update(email: string, updateAuthDto: UpdateAuthDto) {
     const result = await this.Usermodel.findOne({ email });
     if (result) {
-      await this.Usermodel.updateOne({email},{$set:updateAuthDto});
+      await this.Usermodel.updateOne({ email }, { $set: updateAuthDto });
       return 'Foydalanuvchi yangilandi';
     }
     return 'Yangilanadigan Foydalanuvchi topilmadi';

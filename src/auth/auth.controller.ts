@@ -22,11 +22,10 @@ export class AuthController {
   }
 
   @Post('signin')
-  login(@Body() loginAuthdto:loginAuthDto){
-    return this.authService.loginService(loginAuthdto)
+  login(@Body() loginAuthdto: loginAuthDto) {
+    return this.authService.loginService(loginAuthdto);
   }
 
-  
   @Get()
   findAll() {
     return this.authService.findAll();
