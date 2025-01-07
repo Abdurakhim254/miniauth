@@ -26,7 +26,7 @@ export class AuthController {
     return this.authService.loginService(loginAuthdto)
   }
 
-
+  
   @Get()
   findAll() {
     return this.authService.findAll();
