@@ -1,0 +1,16 @@
+services:
+  super-app:
+    image: node
+    depends_on:
+      - super-db
+  super-db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5436:5432'
+    networks:
+      - super-net
+networks:
+  super-net:
+    driver: bridge

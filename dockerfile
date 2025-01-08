@@ -6,10 +6,13 @@ WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
+COPY pnpm-lock.yaml ./
 
 # Install the application dependencies
-RUN npm install
+RUN npm install -g pnpm
 
+RUN pnpm install
+                                                               
 # Copy the rest of the application files
 COPY . .
 
