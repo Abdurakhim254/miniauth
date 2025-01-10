@@ -28,9 +28,8 @@ jobs:
       - name: Deploy to server
         run: |
           ssh -v -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} <<'ENDSSH'
-          cd ${{ secrets .APP_PATH}}
+          cd ${{ secrets.APP_PATH}}
           git pull
           npm i 
           npm run prod
           ENDSSH
-        
