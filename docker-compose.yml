@@ -6,19 +6,25 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - '3000:3000'
+    env_file:
+      - .env
     depends_on:
       - mongo
-    environment:
-      MONGO_URL: mongo mongodb://localhost:27017/test
-
+    networks:
+      - super-net
 
   mongo:
     image: mongo:6
     ports:
-      - "27017:27017"
+      - '27018:27017'
     volumes:
       - mongo-data:/data/db
+    networks:
+      - super-net
 
+networks:
+  super-net:
+    driver: bridge
 volumes:
   mongo-data:
