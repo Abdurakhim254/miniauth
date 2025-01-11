@@ -31,6 +31,5 @@ jobs:
           cd ${{ secrets.APP_PATH}}
           git pull
           npm i
-          npm run build 
           npm run prod
           ENDSSH
