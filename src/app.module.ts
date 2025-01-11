@@ -9,7 +9,7 @@ dotenv.config();
   imports: [
     AuthModule,
     MongooseModule.forRoot(
-      process.env.MONGO_URI || 'mongodb://localhost:27017/test',
+      process.env.MONGO_URI || 'mongodb+srv://Abduraxim:qwerty123456@mongodb-demo.4gmqf.mongodb.net/test',
     ),
   ],
 })
