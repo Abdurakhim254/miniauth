@@ -56,7 +56,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm i
-      # - run: npm test
+      - run: npm run build
+  
 
   deploy:
     runs-on: ubuntu-latest
