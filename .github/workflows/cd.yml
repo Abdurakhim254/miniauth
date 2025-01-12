@@ -27,12 +27,13 @@
 
 #       - name: Deploy to server
 #         run: |
-#           ssh -v -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} <<'ENDSSH'
+#           ssh -v -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST}} <<'ENDSSH'
 #           cd ${{ secrets.APP_PATH}}
 #           git pull
 #           npm i
 #           npm run prod
 #           ENDSSH
+
 name: Node.js CD
 
 on:
@@ -84,4 +85,5 @@ jobs:
           docker run -p 7000:3000 -d --name=${{secrets.CONTAINER}} ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_REPO}}:${{secrets.DOCKER_TAG}}
           docker logout ${{secrets.DOCKER_REPO}}
           ENDSSH
+  
   
