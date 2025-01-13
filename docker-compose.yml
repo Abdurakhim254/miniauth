@@ -28,3 +28,34 @@ networks:
     driver: bridge
 volumes:
   mongo-data:
+# services:
+
+#     postgres-db:
+#         container_name: cv_postgres
+#         image : postgres
+#         environment:
+#             POSTGRES_DB: postgres
+#             POSTGRES_USER: postgres
+#             POSTGRES_PASSWORD: 3636
+#         env_file :
+#             - .env
+#         volumes :
+#             - cv-volume:/var/lib/postgresql/data
+#         ports:
+#             - '5454:5432'
+#         restart: unless-stopped
+#     backend-app:
+#         container_name: cv-maker
+#         build: 
+#             context: .
+#         ports:
+#             - '3000:3000'
+#         depends_on:
+#             - postgres-db
+#         env_file:
+#             - env
+#         volumes:
+#             - .:/usr/src/app
+#             - /usr/src/app/node_modules
+#         restart: unless_stopped
+#         command: npm run start:dev
