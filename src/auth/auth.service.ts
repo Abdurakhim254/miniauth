@@ -57,4 +57,14 @@ export class AuthService {
     }
     return "O'chiriladigan Foydalanuvchi topilmadi";
   }
+  async validateuser(email:string,pass:string){
+    console.log(email,pass)
+    const user=await this.Usermodel.findOne({email})
+    console.log(user)
+    if(user && user.password==pass){
+      const {password,...result}=user
+      return result
+    }
+    return null
+  }
 }

@@ -22,6 +22,11 @@ services:
       - mongo-data:/data/db
     networks:
       - super-net
+  
+  redis:
+    image: redis
+    ports:
+      - '8379:8379'
 
 networks:
   super-net:
